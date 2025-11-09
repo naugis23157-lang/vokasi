@@ -1,0 +1,1540 @@
+<!doctype html>
+<html lang="id">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Penerapan Green Skills dalam Kurikulum Pendidikan Vokasi di Era Digital</title>
+  <script src="/_sdk/element_sdk.js"></script>
+  <style>
+    body {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #f8fffe 0%, #f0fdfa 30%, #ecfdf5 60%, #d1fae5 100%);
+      min-height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    .container {
+      flex: 1;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .header {
+      text-align: center;
+      color: #064e3b;
+      margin-bottom: 30px;
+      padding: 40px 20px;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(240, 253, 250, 0.92) 30%, rgba(236, 253, 245, 0.88) 70%, rgba(209, 250, 229, 0.85) 100%);
+      border-radius: 20px;
+      backdrop-filter: blur(15px);
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      box-shadow: 0 8px 32px rgba(5, 150, 105, 0.08);
+    }
+
+    .header h1 {
+      margin: 0 0 8px 0;
+      font-size: 2.8em;
+      font-weight: 700;
+      color: #022c22;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      letter-spacing: -1px;
+      line-height: 1.2;
+    }
+
+    .header h2 {
+      margin: 0;
+      font-size: 1.6em;
+      font-weight: 500;
+      color: #064e3b;
+      opacity: 0.9;
+      letter-spacing: 0.5px;
+    }
+
+    .header p {
+      margin: 0;
+      font-size: 1.3em;
+      opacity: 0.95;
+      font-weight: 300;
+      letter-spacing: 0.5px;
+    }
+
+    .nav-buttons {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 30px;
+    }
+
+    .nav-btn {
+      padding: 16px 32px;
+      font-size: 1.1em;
+      font-weight: 600;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      background: linear-gradient(135deg, #ffffff 0%, #f0fdfa 40%, #ecfdf5 70%, #d1fae5 100%);
+      color: #064e3b;
+      box-shadow: 0 4px 20px rgba(5, 150, 105, 0.08);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(167, 243, 208, 0.4);
+    }
+
+    .nav-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(5, 150, 105, 0.12);
+      background: linear-gradient(135deg, #ffffff 0%, #ecfdf5 50%, #d1fae5 100%);
+    }
+
+    .nav-btn.active {
+      background: linear-gradient(135deg, #047857 0%, #059669 50%, #10b981 100%);
+      color: white;
+      box-shadow: 0 6px 25px rgba(5, 150, 105, 0.25);
+    }
+
+    .content-area {
+      flex: 1;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(240, 253, 250, 0.95) 30%, rgba(236, 253, 245, 0.92) 70%, rgba(209, 250, 229, 0.88) 100%);
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 20px 60px rgba(5, 150, 105, 0.06);
+      margin-bottom: 20px;
+      overflow-y: auto;
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(167, 243, 208, 0.3);
+    }
+
+    .section {
+      display: none;
+    }
+
+    .section.active {
+      display: block;
+      animation: fadeIn 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .materi-card {
+      background: linear-gradient(135deg, #ffffff 0%, #f0fdfa 40%, #ecfdf5 70%, #d1fae5 100%);
+      padding: 30px;
+      border-radius: 16px;
+      margin-bottom: 25px;
+      border-left: 5px solid #059669;
+      box-shadow: 0 4px 20px rgba(5, 150, 105, 0.04);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .materi-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(5, 150, 105, 0.08);
+    }
+
+    .materi-card h3 {
+      color: #064e3b;
+      margin-top: 0;
+      font-size: 1.6em;
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+
+    .materi-card p {
+      line-height: 1.8;
+      color: #047857;
+      margin-bottom: 15px;
+    }
+
+    .materi-card ul {
+      line-height: 1.8;
+      color: #047857;
+    }
+
+    .game-container {
+      text-align: center;
+    }
+
+    .game-board {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 20px;
+      max-width: 800px;
+      margin: 30px auto;
+    }
+
+    .game-card {
+      background: linear-gradient(135deg, #a7f3d0 0%, #34d399 50%, #10b981 100%);
+      color: white;
+      padding: 30px 20px;
+      border-radius: 16px;
+      cursor: pointer;
+      font-size: 1.1em;
+      font-weight: 600;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 6px 25px rgba(5, 150, 105, 0.25);
+      min-height: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .game-card:hover {
+      transform: scale(1.05) translateY(-5px);
+      box-shadow: 0 10px 35px rgba(5, 150, 105, 0.35);
+    }
+
+    .game-card.matched {
+      background: linear-gradient(135deg, #047857 0%, #059669 100%);
+      cursor: default;
+      opacity: 0.8;
+    }
+
+    .game-card.flipped {
+      background: linear-gradient(135deg, #ffffff 0%, #f0fdfa 40%, #ecfdf5 100%);
+      color: #064e3b;
+      box-shadow: 0 6px 25px rgba(5, 150, 105, 0.15);
+    }
+
+    .quiz-question {
+      background: linear-gradient(135deg, #ffffff 0%, #f0fdfa 40%, #ecfdf5 70%, #d1fae5 100%);
+      padding: 30px;
+      border-radius: 16px;
+      margin-bottom: 25px;
+      box-shadow: 0 4px 20px rgba(5, 150, 105, 0.04);
+    }
+
+    .quiz-question h3 {
+      color: #064e3b;
+      margin-top: 0;
+      font-size: 1.4em;
+      font-weight: 600;
+    }
+
+    .quiz-options {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-top: 25px;
+    }
+
+    .quiz-option {
+      padding: 18px 25px;
+      background: linear-gradient(135deg, #ffffff 0%, #f0fdfa 100%);
+      border: 2px solid #a7f3d0;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      text-align: left;
+      font-weight: 500;
+      color: #064e3b;
+    }
+
+    .quiz-option:hover {
+      border-color: #34d399;
+      background: linear-gradient(135deg, #f0fdfa 0%, #ecfdf5 100%);
+      transform: translateX(5px);
+    }
+
+    .quiz-option.correct {
+      background: linear-gradient(135deg, #047857 0%, #059669 50%, #10b981 100%);
+      color: white;
+      border-color: #047857;
+      box-shadow: 0 4px 20px rgba(5, 150, 105, 0.25);
+    }
+
+    .quiz-option.wrong {
+      background: linear-gradient(135deg, #dc2626 0%, #ef4444 100%);
+      color: white;
+      border-color: #dc2626;
+      box-shadow: 0 4px 20px rgba(220, 38, 38, 0.3);
+    }
+
+    .quiz-score {
+      text-align: center;
+      font-size: 1.8em;
+      color: #064e3b;
+      font-weight: 700;
+      margin-top: 30px;
+      padding: 20px;
+      background: linear-gradient(135deg, #ffffff 0%, #f0fdfa 40%, #ecfdf5 70%, #d1fae5 100%);
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(5, 150, 105, 0.04);
+    }
+
+    .refleksi-form {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .form-group {
+      margin-bottom: 30px;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: 600;
+      color: #064e3b;
+      margin-bottom: 12px;
+      font-size: 1.1em;
+    }
+
+    .form-group textarea {
+      width: 100%;
+      padding: 18px;
+      border: 2px solid #a7f3d0;
+      border-radius: 12px;
+      font-size: 1em;
+      font-family: inherit;
+      resize: vertical;
+      min-height: 130px;
+      transition: border-color 0.3s ease;
+      background: linear-gradient(135deg, #ffffff 0%, #f0fdfa 100%);
+      color: #064e3b;
+    }
+
+    .form-group textarea:focus {
+      outline: none;
+      border-color: #10b981;
+      box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+    }
+
+    .submit-btn {
+      width: 100%;
+      padding: 18px;
+      background: linear-gradient(135deg, #047857 0%, #059669 50%, #10b981 100%);
+      color: white;
+      border: none;
+      border-radius: 12px;
+      font-size: 1.2em;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 6px 25px rgba(5, 150, 105, 0.25);
+    }
+
+    .submit-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 35px rgba(5, 150, 105, 0.35);
+    }
+
+    .success-message {
+      background: linear-gradient(135deg, #047857 0%, #059669 50%, #10b981 100%);
+      color: white;
+      padding: 25px;
+      border-radius: 16px;
+      text-align: center;
+      margin-top: 25px;
+      display: none;
+      box-shadow: 0 6px 25px rgba(5, 150, 105, 0.25);
+    }
+
+    .footer {
+      background: linear-gradient(135deg, #064e3b 0%, #047857 50%, #059669 100%);
+      color: white;
+      text-align: center;
+      padding: 20px;
+      font-size: 1.2em;
+      font-weight: 600;
+      letter-spacing: 1px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 -4px 20px rgba(5, 150, 105, 0.1);
+    }
+
+    .drag-item {
+      background: linear-gradient(135deg, #16a34a 0%, #22c55e 100%);
+      color: white;
+      padding: 15px 20px;
+      border-radius: 12px;
+      cursor: grab;
+      margin: 5px;
+      font-weight: 600;
+      box-shadow: 0 4px 15px rgba(34, 197, 94, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    .drag-item:hover {
+      transform: scale(1.05);
+    }
+
+    .drag-item.dragging {
+      opacity: 0.5;
+      cursor: grabbing;
+    }
+
+    .drop-zone {
+      min-height: 200px;
+      border: 3px dashed #4ade80;
+      border-radius: 16px;
+      padding: 20px;
+      transition: all 0.3s ease;
+    }
+
+    .drop-zone.drag-over {
+      border-color: #16a34a;
+      background: rgba(34, 197, 94, 0.1);
+    }
+
+    .sorting-item {
+      background: linear-gradient(135deg, #ffffff 0%, #f0fdf4 100%);
+      border: 2px solid #bbf7d0;
+      padding: 20px;
+      margin: 10px 0;
+      border-radius: 12px;
+      cursor: grab;
+      transition: all 0.3s ease;
+      font-weight: 500;
+    }
+
+    .sorting-item:hover {
+      border-color: #4ade80;
+      transform: translateX(10px);
+      background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+    }
+
+    .sorting-item.dragging {
+      opacity: 0.5;
+      cursor: grabbing;
+    }
+
+    @media (max-width: 768px) {
+      .header h1 {
+        font-size: 2.2em;
+      }
+
+      .nav-buttons {
+        flex-direction: column;
+      }
+
+      .nav-btn {
+        width: 100%;
+      }
+
+      .game-board {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .content-area {
+        padding: 25px;
+      }
+    }
+  </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  <script src="https://cdn.tailwindcss.com" type="text/javascript"></script>
+ </head>
+ <body>
+  <div class="container">
+   <header class="header">
+    <h1 id="main-title">Penerapan Green Skills dalam Kurikulum Pendidikan Vokasi</h1>
+    <h2 id="subtitle">Pendidikan Vokasi di Era Digital</h2>
+   </header><!-- Login Section -->
+   <div id="loginSection" class="content-area" style="max-width: 500px; margin: 0 auto 30px auto; text-align: center; background: linear-gradient(135deg, #ffffff 0%, #f8fafc 50%, #e2e8f0 100%); border: 2px solid #cbd5e1; box-shadow: 0 10px 40px rgba(71, 85, 105, 0.15);">
+    <h2 style="color: #475569; margin-bottom: 30px; font-size: 1.8em;">🔐 Login Sistem</h2>
+    <div style="display: flex; gap: 15px; justify-content: center; margin-bottom: 20px;"><button class="nav-btn" id="siswaBtn" onclick="selectRole('siswa')">👨‍🎓 Siswa</button> <button class="nav-btn" id="guruBtn" onclick="selectRole('guru')">👩‍🏫 Guru</button>
+    </div>
+    <div id="loginForm" style="display: none;"><input type="text" id="nameInput" placeholder="Masukkan nama Anda..." style="width: 100%; padding: 15px; border: 2px solid #94a3b8; border-radius: 12px; font-size: 1.1em; margin-bottom: 20px;"> <button class="submit-btn" onclick="login()" style="max-width: 200px;">🚀 Masuk</button>
+    </div>
+   </div>
+   <nav class="nav-buttons" id="mainNav" style="display: none;"><button class="nav-btn active" onclick="showSection('materi')">📚 Materi</button> <button class="nav-btn" onclick="showSection('game')">🎮 Game</button> <button class="nav-btn" onclick="showSection('quiz')">❓ Quiz</button> <button class="nav-btn" onclick="showSection('refleksi')">💭 Refleksi</button> <button class="nav-btn" id="dashboardBtn" onclick="showSection('dashboard')" style="display: none;">📊 Dashboard</button> <button class="nav-btn" onclick="logout()" style="background: linear-gradient(135deg, #dc2626 0%, #ef4444 100%); color: white;">🚪 Keluar</button>
+   </nav>
+   <main class="content-area"><!-- Materi Section -->
+    <section id="materi" class="section active">
+     <h2 style="color: #064e3b; text-align: center; margin-bottom: 40px; font-size: 2.2em; font-weight: 700;">📖 Materi Pembelajaran</h2>
+     <div class="materi-card">
+      <h3>🌍 1. Pengertian Green Skills</h3>
+      <p>Green skills atau keterampilan hijau adalah kemampuan, pengetahuan, nilai, dan sikap yang diperlukan untuk mendukung pembangunan berkelanjutan. Green skills berfokus pada upaya menjaga keseimbangan lingkungan melalui kegiatan ekonomi, industri, dan sosial yang ramah lingkungan.</p>
+      <p>Dalam konteks pendidikan vokasi, green skills mencakup keterampilan teknis dan non-teknis yang membantu peserta didik berkontribusi pada dunia kerja yang berorientasi pada efisiensi energi, pengelolaan limbah, dan penggunaan sumber daya secara berkelanjutan.</p>
+     </div>
+     <div class="materi-card">
+      <h3>🎯 2. Tujuan Penerapan Green Skills dalam Pendidikan Vokasi</h3>
+      <p>Penerapan green skills di lembaga pendidikan vokasi bertujuan untuk:</p>
+      <ul>
+       <li>Menyiapkan lulusan yang peduli lingkungan dan mampu menerapkan praktik ramah lingkungan di tempat kerja</li>
+       <li>Mendorong inovasi teknologi yang hemat energi dan minim limbah</li>
+       <li>Meningkatkan kesadaran peserta didik terhadap pentingnya ekonomi hijau (green economy)</li>
+       <li>Mendukung pencapaian Tujuan Pembangunan Berkelanjutan (SDGs) terutama pada poin 4 (Pendidikan Berkualitas), 8 (Pekerjaan Layak dan Pertumbuhan Ekonomi), dan 13 (Penanganan Perubahan Iklim)</li>
+      </ul>
+     </div>
+     <div class="materi-card">
+      <h3>💼 3. Contoh Penerapan Green Skills dalam Kurikulum Vokasi</h3>
+      <p>Penerapan green skills dapat dilakukan secara langsung maupun terintegrasi dengan mata pelajaran atau praktik kejuruan, seperti:</p>
+      <ul>
+       <li><strong>Teknik dan Rekayasa:</strong> Menerapkan prinsip reduce, reuse, recycle dalam proses produksi dan perakitan. Menggunakan bahan ramah lingkungan dan teknologi efisien energi</li>
+       <li><strong>Pertanian dan Peternakan:</strong> Menerapkan sistem pertanian organik dan pengelolaan limbah ternak menjadi biogas atau pupuk kompos</li>
+       <li><strong>Pariwisata dan Perhotelan:</strong> Mengelola hotel atau tempat wisata dengan konsep eco-tourism, mengurangi penggunaan plastik sekali pakai, dan menghemat energi</li>
+       <li><strong>Bisnis dan Manajemen:</strong> Mengembangkan strategi pemasaran dan operasional yang mendukung prinsip sustainability dan tanggung jawab sosial perusahaan (CSR)</li>
+       <li><strong>Desain dan Multimedia:</strong> Menggunakan media digital untuk mengurangi konsumsi kertas, serta menciptakan desain kampanye yang mengedukasi masyarakat tentang gaya hidup hijau</li>
+      </ul>
+     </div>
+     <div class="materi-card">
+      <h3>📚 4. Strategi Integrasi Green Skills ke dalam Kurikulum</h3>
+      <p>Agar penerapan green skills efektif, beberapa strategi yang bisa dilakukan antara lain:</p>
+      <ul>
+       <li>Revisi kurikulum agar setiap program studi memiliki muatan kompetensi berkelanjutan</li>
+       <li>Pelatihan guru dan instruktur vokasi terkait konsep dan praktik green skills</li>
+       <li>Proyek berbasis lingkungan, seperti daur ulang bahan, konservasi energi, atau pembuatan inovasi ramah lingkungan</li>
+       <li>Kerjasama industri hijau, agar siswa bisa belajar langsung dari dunia kerja yang menerapkan prinsip keberlanjutan</li>
+       <li>Penerapan budaya sekolah hijau (green campus/school) dengan pengelolaan limbah, hemat energi, dan penghijauan lingkungan sekolah</li>
+      </ul>
+     </div>
+     <div class="materi-card">
+      <h3>✨ 5. Manfaat Penerapan Green Skills</h3>
+      <ul>
+       <li>Meningkatkan daya saing lulusan di pasar kerja global</li>
+       <li>Mendorong terciptanya industri ramah lingkungan</li>
+       <li>Menumbuhkan kesadaran ekologi di kalangan siswa</li>
+       <li>Mendukung transformasi pendidikan vokasi menuju pembelajaran berbasis keberlanjutan</li>
+      </ul>
+     </div>
+     <div class="materi-card">
+      <h3>📝 6. Kesimpulan</h3>
+      <p>Penerapan green skills dalam kurikulum pendidikan vokasi merupakan langkah strategis untuk menyiapkan sumber daya manusia yang kompeten, peduli lingkungan, dan siap menghadapi tantangan era ekonomi hijau. Dengan mengintegrasikan keterampilan hijau ke dalam proses pembelajaran dan praktik kerja, pendidikan vokasi tidak hanya menghasilkan tenaga kerja terampil, tetapi juga agen perubahan yang berkontribusi pada pembangunan berkelanjutan.</p>
+     </div>
+    </section><!-- Game Section -->
+    <section id="game" class="section">
+     <h2 style="color: #064e3b; text-align: center; margin-bottom: 30px; font-size: 2.2em; font-weight: 700;">🎮 Game Edukasi Green Skills</h2>
+     <p style="text-align: center; color: #666; margin-bottom: 30px; font-size: 1.1em;">Pilih game yang ingin Anda mainkan!</p>
+     <div class="nav-buttons" style="margin-bottom: 40px;"><button class="nav-btn" onclick="showGame('memory')" id="memoryBtn">🧠 Memory Game</button> <button class="nav-btn" onclick="showGame('drag')" id="dragBtn">🎯 Drag &amp; Drop</button> <button class="nav-btn" onclick="showGame('word')" id="wordBtn">📝 Teka-teki Kata</button> <button class="nav-btn" onclick="showGame('sorting')" id="sortBtn">🔄 Sorting Game</button>
+     </div><!-- Memory Game -->
+     <div id="memoryGame" class="game-container" style="display: none;">
+      <h3 style="text-align: center; color: #064e3b; margin-bottom: 20px; font-size: 1.6em;">🧠 Memory Game - Cocokkan Konsep Green Skills</h3>
+      <p style="text-align: center; color: #666; margin-bottom: 30px;">Klik kartu untuk menemukan pasangan yang cocok!</p>
+      <div class="game-board" id="memoryBoard"></div>
+      <div style="text-align: center; margin-top: 30px;"><button class="submit-btn" onclick="resetMemoryGame()" style="max-width: 300px; margin: 0 auto;">🔄 Main Lagi</button>
+      </div>
+     </div><!-- Drag & Drop Game -->
+     <div id="dragGame" class="game-container" style="display: none;">
+      <h3 style="text-align: center; color: #064e3b; margin-bottom: 20px; font-size: 1.6em;">🎯 Drag &amp; Drop - Kelompokkan Green Skills</h3>
+      <p style="text-align: center; color: #666; margin-bottom: 30px;">Seret item ke kategori yang tepat!</p>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; max-width: 800px; margin: 0 auto;">
+       <div class="drop-zone" id="technical" style="background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);">
+        <h4 style="text-align: center; color: #374151; margin-bottom: 15px; font-size: 1.3em;">🔧 Keterampilan Teknis</h4>
+        <div class="drop-items" id="technicalItems"></div>
+       </div>
+       <div class="drop-zone" id="nontechnical" style="background: linear-gradient(135deg, #f0f9ff 0%, #dbeafe 100%);">
+        <h4 style="text-align: center; color: #374151; margin-bottom: 15px; font-size: 1.3em;">💡 Keterampilan Non-Teknis</h4>
+        <div class="drop-items" id="nontechnicalItems"></div>
+       </div>
+      </div>
+      <div style="margin: 30px 0; text-align: center;">
+       <h4 style="color: #374151; margin-bottom: 20px; font-size: 1.2em;">Seret item berikut ke kategori yang tepat:</h4>
+       <div id="dragItems" style="display: flex; flex-wrap: wrap; gap: 15px; justify-content: center;"></div>
+      </div>
+      <div style="text-align: center; margin-top: 30px;"><button class="submit-btn" onclick="checkDragGame()" style="max-width: 200px; margin: 0 10px;">✓ Cek Jawaban</button> <button class="submit-btn" onclick="resetDragGame()" style="max-width: 200px; margin: 0 10px;">🔄 Main Lagi</button>
+      </div>
+      <div id="dragResult" style="text-align: center; font-size: 1.3em; margin-top: 25px; font-weight: 600;"></div>
+     </div><!-- Word Puzzle Game -->
+     <div id="wordGame" class="game-container" style="display: none;">
+      <h3 style="text-align: center; color: #064e3b; margin-bottom: 20px; font-size: 1.6em;">📝 Teka-teki Kata Green Skills</h3>
+      <p style="text-align: center; color: #666; margin-bottom: 30px;">Susun huruf-huruf berikut menjadi kata yang berkaitan dengan green skills!</p>
+      <div style="text-align: center; margin-bottom: 40px;">
+       <div id="scrambledWord" style="font-size: 2.5em; font-weight: bold; color: #374151; margin-bottom: 20px; letter-spacing: 8px;"></div>
+       <div id="wordHint" style="color: #666; font-style: italic; margin-bottom: 25px; font-size: 1.1em;"></div><input type="text" id="wordAnswer" placeholder="Masukkan jawaban Anda..." style="padding: 18px; font-size: 1.3em; border: 2px solid #667eea; border-radius: 12px; width: 350px; text-align: center; margin-bottom: 25px;"> <br><button class="submit-btn" onclick="checkWordAnswer()" style="max-width: 200px; margin: 0 10px;">✓ Cek Jawaban</button> <button class="submit-btn" onclick="nextWord()" style="max-width: 200px; margin: 0 10px;">➡️ Kata Berikutnya</button>
+      </div>
+      <div id="wordResult" style="text-align: center; font-size: 1.3em; margin-top: 25px; font-weight: 600;"></div>
+      <div id="wordScore" style="text-align: center; font-size: 1.5em; margin-top: 20px; color: #374151; font-weight: 700;"></div>
+     </div><!-- Sorting Game -->
+     <div id="sortingGame" class="game-container" style="display: none;">
+      <h3 style="text-align: center; color: #064e3b; margin-bottom: 20px; font-size: 1.6em;">🔄 Sorting Game - Urutkan Langkah Implementasi</h3>
+      <p style="text-align: center; color: #666; margin-bottom: 30px;">Urutkan langkah-langkah implementasi green skills dari yang pertama hingga terakhir!</p>
+      <div id="sortingItems" style="max-width: 700px; margin: 0 auto;"></div>
+      <div style="text-align: center; margin-top: 40px;"><button class="submit-btn" onclick="checkSortingOrder()" style="max-width: 200px; margin: 0 10px;">✓ Cek Urutan</button> <button class="submit-btn" onclick="resetSortingGame()" style="max-width: 200px; margin: 0 10px;">🔄 Acak Lagi</button>
+      </div>
+      <div id="sortingResult" style="text-align: center; font-size: 1.3em; margin-top: 25px; font-weight: 600;"></div>
+     </div>
+    </section><!-- Quiz Section -->
+    <section id="quiz" class="section">
+     <h2 style="color: #064e3b; text-align: center; margin-bottom: 40px; font-size: 2.2em; font-weight: 700;">❓ Quiz Pemahaman</h2>
+     <div class="quiz-question">
+      <h3>1. Apa yang dimaksud dengan green skills dalam konteks pendidikan vokasi di era digital?</h3>
+      <div class="quiz-options">
+       <div class="quiz-option" onclick="checkAnswer(this, false, 'Green skills lebih luas dari sekedar teknologi hijau, mencakup kemampuan, pengetahuan, nilai, dan sikap.')">
+        A. Hanya keterampilan menggunakan teknologi hijau
+       </div>
+       <div class="quiz-option" onclick="checkAnswer(this, true, 'Benar! Green skills adalah kemampuan, pengetahuan, nilai, dan sikap untuk mendukung pembangunan berkelanjutan.')">
+        B. Kemampuan, pengetahuan, nilai, dan sikap untuk mendukung pembangunan berkelanjutan
+       </div>
+       <div class="quiz-option" onclick="checkAnswer(this, false, 'Green skills bukan hanya tentang pertanian organik, tetapi mencakup semua bidang vokasi.')">
+        C. Keterampilan pertanian organik saja
+       </div>
+       <div class="quiz-option" onclick="checkAnswer(this, false, 'Green skills tidak terbatas pada pengelolaan limbah, tetapi mencakup efisiensi energi dan sumber daya.')">
+        D. Kemampuan mengelola limbah saja
+       </div>
+      </div>
+      <div class="quiz-feedback" style="margin-top: 15px; padding: 15px; border-radius: 8px; display: none;"></div>
+     </div>
+     <div class="quiz-question">
+      <h3>2. Dalam program studi Teknik dan Rekayasa, penerapan green skills mencakup:</h3>
+      <div class="quiz-options">
+       <div class="quiz-option" onclick="checkAnswer(this, false, 'Memproduksi sebanyak mungkin tidak sejalan dengan prinsip reduce dalam green skills.')">
+        A. Memproduksi barang sebanyak mungkin
+       </div>
+       <div class="quiz-option" onclick="checkAnswer(this, true, 'Benar! Prinsip 3R (reduce, reuse, recycle) dan teknologi efisien energi adalah inti green skills di teknik.')">
+        B. Menerapkan prinsip reduce, reuse, recycle dan teknologi efisien energi
+       </div>
+       <div class="quiz-option" onclick="checkAnswer(this, false, 'Menggunakan bahan termurah tidak selalu ramah lingkungan dan berkelanjutan.')">
+        C. Menggunakan bahan termurah tanpa mempertimbangkan dampak lingkungan
+       </div>
+       <div class="quiz-option" onclick="checkAnswer(this, false, 'Fokus pada keuntungan saja bertentangan dengan prinsip keberlanjutan green skills.')">
+        D. Fokus pada keuntungan maksimal tanpa mempertimbangkan keberlanjutan
+       </div>
+      </div>
+      <div class="quiz-feedback" style="margin-top: 15px; padding: 15px; border-radius: 8px; display: none;"></div>
+     </div>
+     <div class="quiz-question">
+      <h3>3. Strategi integrasi green skills ke dalam kurikulum vokasi meliputi:</h3>
+      <div class="quiz-options">
+       <div class="quiz-option" onclick="checkAnswer(this, false, 'Hanya menambah mata pelajaran baru tidak cukup, perlu integrasi menyeluruh.')">
+        A. Hanya menambahkan mata pelajaran baru tentang lingkungan
+       </div>
+       <div class="quiz-option" onclick="checkAnswer(this, true, 'Benar! Strategi komprehensif meliputi revisi kurikulum, pelatihan guru, proyek lingkungan, dan kerjasama industri.')">
+        B. Revisi kurikulum, pelatihan guru, proyek berbasis lingkungan, dan kerjasama industri hijau
+       </div>
+       <div class="quiz-option" onclick="checkAnswer(this, false, 'Teori saja tidak cukup, perlu praktik dan implementasi nyata.')">
+        C. Mengajarkan teori lingkungan tanpa praktik
+       </div>
+       <div class="quiz-option" onclick="checkAnswer(this, false, 'Menunggu kebijakan pemerintah tidak proaktif, institusi bisa memulai sendiri.')">
+        D. Menunggu kebijakan pemerintah tanpa inisiatif sendiri
+       </div>
+      </div>
+      <div class="quiz-feedback" style="margin-top: 15px; padding: 15px; border-radius: 8px; display: none;"></div>
+     </div>
+     <div class="quiz-question">
+      <h3>4. Dalam bidang Pariwisata dan Perhotelan, green skills diterapkan melalui:</h3>
+      <div class="quiz-options">
+       <div class="quiz-option" onclick="checkAnswer(this, false, 'Membangun hotel mewah saja tidak menjamin penerapan green skills.')">
+        A. Membangun hotel mewah dengan fasilitas lengkap
+       </div>
+       <div class="quiz-option" onclick="checkAnswer(this, true, 'Benar! Eco-tourism, pengurangan plastik sekali pakai, dan penghematan energi adalah penerapan green skills di pariwisata.')">
+        B. Mengelola eco-tourism, mengurangi plastik sekali pakai, dan menghemat energi
+       </div>
+       <div class="quiz-option" onclick="checkAnswer(this, false, 'Menarik wisatawan sebanyak mungkin tanpa mempertimbangkan dampak lingkungan tidak berkelanjutan.')">
+        C. Menarik wisatawan sebanyak mungkin tanpa mempertimbangkan dampak lingkungan
+       </div>
+       <div class="quiz-option" onclick="checkAnswer(this, false, 'Harga murah saja tidak mencerminkan penerapan green skills.')">
+        D. Menawarkan paket wisata dengan harga semurah mungkin
+       </div>
+      </div>
+      <div class="quiz-feedback" style="margin-top: 15px; padding: 15px; border-radius: 8px; display: none;"></div>
+     </div>
+     <div class="quiz-question">
+      <h3>5. Manfaat penerapan green skills dalam kurikulum pendidikan vokasi di era digital adalah:</h3>
+      <div class="quiz-options">
+       <div class="quiz-option" onclick="checkAnswer(this, false, 'Green skills tidak secara langsung mengurangi biaya operasional sekolah.')">
+        A. Mengurangi biaya operasional sekolah
+       </div>
+       <div class="quiz-option" onclick="checkAnswer(this, false, 'Green skills tidak mempercepat kelulusan, tetapi meningkatkan kualitas kompetensi.')">
+        B. Mempercepat waktu kelulusan siswa
+       </div>
+       <div class="quiz-option" onclick="checkAnswer(this, true, 'Benar! Green skills meningkatkan daya saing lulusan, mendorong industri ramah lingkungan, dan mendukung transformasi pendidikan berkelanjutan.')">
+        C. Meningkatkan daya saing lulusan, mendorong industri ramah lingkungan, dan mendukung transformasi pendidikan berkelanjutan
+       </div>
+       <div class="quiz-option" onclick="checkAnswer(this, false, 'Green skills tidak secara otomatis meningkatkan ranking sekolah.')">
+        D. Meningkatkan ranking sekolah di tingkat nasional
+       </div>
+      </div>
+      <div class="quiz-feedback" style="margin-top: 15px; padding: 15px; border-radius: 8px; display: none;"></div>
+     </div>
+     <div class="quiz-score" id="quizScore">
+      Skor: 0/5
+     </div>
+     <div style="text-align: center; margin-top: 30px;"><button class="submit-btn" onclick="resetQuiz()" style="max-width: 300px; margin: 0 auto;">🔄 Mulai Quiz Lagi</button>
+     </div>
+    </section><!-- Refleksi Section -->
+    <section id="refleksi" class="section">
+     <h2 style="color: #064e3b; text-align: center; margin-bottom: 40px; font-size: 2.2em; font-weight: 700;">💭 Refleksi Pembelajaran</h2>
+     <form class="refleksi-form" onsubmit="submitRefleksi(event)">
+      <div class="form-group"><label for="pemahaman">1. Setelah mempelajari materi ini, bagaimana pemahaman Anda tentang penerapan green skills dalam kurikulum pendidikan vokasi di era digital?</label> <textarea id="pemahaman" required placeholder="Jelaskan pemahaman Anda tentang konsep green skills, tujuan penerapannya, dan relevansinya dengan era digital..."></textarea>
+      </div>
+      <div class="form-group"><label for="penerapan">2. Sebagai calon tenaga kerja/pendidik vokasi, bagaimana Anda akan mengintegrasikan green skills dalam bidang keahlian Anda? Berikan contoh konkret!</label> <textarea id="penerapan" required placeholder="Tuliskan rencana konkret penerapan green skills sesuai bidang studi Anda (Teknik, Pertanian, Pariwisata, Bisnis, atau Desain)..."></textarea>
+      </div>
+      <div class="form-group"><label for="tantangan">3. Analisis tantangan dan hambatan yang mungkin dihadapi dalam mengimplementasikan green skills di lembaga pendidikan vokasi, serta solusi yang Anda usulkan!</label> <textarea id="tantangan" required placeholder="Identifikasi tantangan seperti keterbatasan sumber daya, resistensi perubahan, atau kurangnya kesadaran, beserta solusinya..."></textarea>
+      </div>
+      <div class="form-group"><label for="komitmen">4. Bagaimana Anda akan berkontribusi dalam mendukung transformasi pendidikan vokasi menuju pembelajaran berbasis keberlanjutan? Tuliskan komitmen dan rencana aksi Anda!</label> <textarea id="komitmen" required placeholder="Tuliskan komitmen personal dan rencana aksi nyata untuk mendukung green skills di lingkungan pendidikan dan kerja..."></textarea>
+      </div>
+      <div class="form-group"><label for="evaluasi">5. Evaluasi pembelajaran: Bagaimana materi dan metode pembelajaran interaktif ini membantu pemahaman Anda tentang green skills? Berikan saran perbaikan!</label> <textarea id="evaluasi" required placeholder="Berikan evaluasi terhadap materi, game, quiz, dan metode pembelajaran yang telah Anda ikuti, serta saran untuk perbaikan..."></textarea>
+      </div><button type="submit" class="submit-btn">📝 Kirim Refleksi</button>
+     </form>
+     <div class="success-message" id="successMessage">
+      ✅ Refleksi Anda telah berhasil disimpan secara lokal di browser! Jawaban Anda tersimpan untuk sesi pembelajaran ini. Terima kasih atas partisipasi Anda dalam pembelajaran green skills.
+     </div>
+     <div style="background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%); padding: 25px; border-radius: 16px; margin-top: 30px; border-left: 5px solid #475569;">
+      <h4 style="color: #475569; margin-top: 0; font-size: 1.3em;">📝 Tentang Penyimpanan Refleksi</h4>
+      <p style="color: #475569; line-height: 1.7; margin-bottom: 15px;"><strong>Jawaban refleksi Anda disimpan secara lokal di browser</strong> untuk keperluan pembelajaran pribadi. Data tidak dikirim ke server eksternal dan hanya tersedia selama sesi pembelajaran ini.</p>
+      <p style="color: #475569; line-height: 1.7; margin: 0;">Jika Anda ingin menyimpan refleksi secara permanen, silakan salin jawaban Anda ke dokumen pribadi atau aplikasi catatan lainnya.</p>
+     </div>
+    </section><!-- Dashboard Section (Guru Only) -->
+    <section id="dashboard" class="section">
+     <h2 style="color: #064e3b; text-align: center; margin-bottom: 40px; font-size: 2.2em; font-weight: 700;">📊 Dashboard Guru</h2>
+     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-bottom: 40px;">
+      <div style="background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%); padding: 25px; border-radius: 16px; border-left: 5px solid #475569;">
+       <h3 style="color: #475569; margin-top: 0; font-size: 1.4em;">👨‍🎓 Aktivitas Siswa</h3>
+       <div id="studentStats" style="font-size: 1.1em; color: #64748b;">
+        <p>Total siswa aktif: <strong id="totalStudents">0</strong></p>
+        <p>Game dimainkan: <strong id="gamesPlayed">0</strong> kali</p>
+        <p>Quiz diselesaikan: <strong id="quizCompleted">0</strong> kali</p>
+        <p>Refleksi dikirim: <strong id="reflectionSubmitted">0</strong> kali</p>
+       </div>
+      </div>
+      <div style="background: linear-gradient(135deg, #f0f9ff 0%, #dbeafe 100%); padding: 25px; border-radius: 16px; border-left: 5px solid #475569;">
+       <h3 style="color: #475569; margin-top: 0; font-size: 1.4em;">📈 Statistik Pembelajaran</h3>
+       <div style="font-size: 1.1em; color: #64748b;">
+        <p>Rata-rata skor quiz: <strong id="avgQuizScore">0</strong>/5</p>
+        <p>Game paling populer: <strong id="popularGame">-</strong></p>
+        <p>Waktu rata-rata: <strong id="avgTime">0</strong> menit</p>
+       </div>
+      </div>
+     </div>
+     <div style="background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%); padding: 30px; border-radius: 16px; border-left: 5px solid #475569;">
+      <h3 style="color: #475569; margin-top: 0; font-size: 1.6em;">📋 Daftar Siswa dan Nilai</h3>
+      <div id="studentList" style="max-height: 400px; overflow-y: auto;">
+       <p style="color: #64748b; font-style: italic; text-align: center; padding: 20px;">Belum ada siswa yang login.</p>
+      </div>
+     </div>
+     <div style="background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%); padding: 30px; border-radius: 16px; border-left: 5px solid #475569; margin-top: 25px;">
+      <h3 style="color: #475569; margin-top: 0; font-size: 1.6em;">📝 Aktivitas Terbaru</h3>
+      <div id="recentActivities" style="max-height: 300px; overflow-y: auto;">
+       <p style="color: #64748b; font-style: italic; text-align: center; padding: 20px;">Belum ada aktivitas siswa yang tercatat.</p>
+      </div>
+     </div>
+    </section>
+   </main>
+  </div>
+  <footer class="footer"><span id="author-name">Naugis Sahmadani</span>
+  </footer>
+  <script>
+    const defaultConfig = {
+      main_title: "Penerapan Green Skills dalam Kurikulum Pendidikan Vokasi",
+      subtitle: "Pendidikan Vokasi di Era Digital",
+      author_name: "Naugis Sahmadani"
+    };
+
+    let config = { ...defaultConfig };
+
+    // Game variables
+    const gameCards = [
+      { id: 1, text: "Green Skills", pair: 2 },
+      { id: 2, text: "Kemampuan Berkelanjutan", pair: 1 },
+      { id: 3, text: "Kurikulum Vokasi", pair: 4 },
+      { id: 4, text: "Integrasi Hijau", pair: 3 },
+      { id: 5, text: "Era Digital", pair: 6 },
+      { id: 6, text: "Teknologi Ramah Lingkungan", pair: 5 }
+    ];
+
+    const dragItems = [
+      { text: "Instalasi Panel Surya", category: "technical" },
+      { text: "Kesadaran Lingkungan", category: "nontechnical" },
+      { text: "Pengolahan Limbah Industri", category: "technical" },
+      { text: "Komunikasi Berkelanjutan", category: "nontechnical" },
+      { text: "Audit Energi Bangunan", category: "technical" },
+      { text: "Kepemimpinan Hijau", category: "nontechnical" },
+      { text: "Sistem Hidroponik", category: "technical" },
+      { text: "Etika Lingkungan", category: "nontechnical" },
+      { text: "Teknologi Biogas", category: "technical" },
+      { text: "Manajemen CSR", category: "nontechnical" },
+      { text: "Green Building Design", category: "technical" },
+      { text: "Edukasi Masyarakat", category: "nontechnical" }
+    ];
+
+    const wordPuzzles = [
+      { word: "BERKELANJUTAN", scrambled: "JUKANTANBELER", hint: "Konsep pembangunan yang memperhatikan generasi masa depan dalam konteks green skills" },
+      { word: "KURIKULUM", scrambled: "MULUKIRUK", hint: "Sistem pembelajaran yang perlu direvisi untuk mengintegrasikan green skills" },
+      { word: "VOKASI", scrambled: "SAKOVI", hint: "Jenis pendidikan yang fokus pada keterampilan praktis dan siap kerja" },
+      { word: "EKOWISATA", scrambled: "TAWISOKE", hint: "Konsep pariwisata berkelanjutan yang menerapkan green skills" },
+      { word: "EFISIENSI", scrambled: "SINEISIFE", hint: "Prinsip penggunaan sumber daya secara optimal dalam green skills" },
+      { word: "INOVASI", scrambled: "SIVONAI", hint: "Pengembangan teknologi baru yang mendukung keberlanjutan" },
+      { word: "KOMPETENSI", scrambled: "NETEPOMIKS", hint: "Kemampuan yang harus dimiliki lulusan vokasi di era green economy" }
+    ];
+
+    const sortingSteps = [
+      { id: 1, text: "Identifikasi kebutuhan green skills di setiap program studi vokasi", order: 1 },
+      { id: 2, text: "Pelatihan guru dan instruktur tentang konsep dan praktik berkelanjutan", order: 2 },
+      { id: 3, text: "Revisi kurikulum dengan mengintegrasikan kompetensi hijau ke setiap mata pelajaran", order: 3 },
+      { id: 4, text: "Implementasi pembelajaran berbasis proyek lingkungan dan kerjasama industri hijau", order: 4 },
+      { id: 5, text: "Evaluasi berkelanjutan dan perbaikan program green skills", order: 5 }
+    ];
+
+    let flippedCards = [];
+    let matchedPairs = 0;
+    let quizScore = 0;
+    let currentWordIndex = 0;
+    let wordScore = 0;
+
+    // User session variables
+    let currentUser = null;
+    let userRole = null;
+    let sessionStartTime = null;
+    let studentActivities = JSON.parse(localStorage.getItem('studentActivities') || '[]');
+    let gameStats = JSON.parse(localStorage.getItem('gameStats') || '{}');
+
+    // Login and user management functions
+    function selectRole(role) {
+      document.getElementById('siswaBtn').classList.remove('active');
+      document.getElementById('guruBtn').classList.remove('active');
+      document.getElementById(role + 'Btn').classList.add('active');
+      
+      userRole = role;
+      document.getElementById('loginForm').style.display = 'block';
+      document.getElementById('nameInput').placeholder = role === 'siswa' ? 'Masukkan nama siswa...' : 'Masukkan nama guru...';
+    }
+
+    function login() {
+      const name = document.getElementById('nameInput').value.trim();
+      if (!name || !userRole) {
+        showToast('Silakan pilih role dan masukkan nama!', 'error');
+        return;
+      }
+
+      currentUser = name;
+      sessionStartTime = new Date();
+      
+      // Hide login section and show main navigation
+      document.getElementById('loginSection').style.display = 'none';
+      document.getElementById('mainNav').style.display = 'flex';
+      
+      // Show dashboard button for teachers
+      if (userRole === 'guru') {
+        document.getElementById('dashboardBtn').style.display = 'block';
+        showSection('dashboard');
+        updateDashboard();
+      } else {
+        showSection('materi');
+        logActivity('login', 'Siswa login ke sistem');
+      }
+      
+      showToast(`Selamat datang, ${name}!`, 'success');
+    }
+
+    function logout() {
+      if (userRole === 'siswa') {
+        const sessionDuration = Math.round((new Date() - sessionStartTime) / 60000);
+        logActivity('logout', `Siswa logout setelah ${sessionDuration} menit`);
+      }
+      
+      currentUser = null;
+      userRole = null;
+      sessionStartTime = null;
+      
+      document.getElementById('loginSection').style.display = 'block';
+      document.getElementById('mainNav').style.display = 'none';
+      document.getElementById('loginForm').style.display = 'none';
+      document.getElementById('nameInput').value = '';
+      document.getElementById('siswaBtn').classList.remove('active');
+      document.getElementById('guruBtn').classList.remove('active');
+      
+      showToast('Anda telah keluar dari sistem', 'info');
+    }
+
+    function logActivity(type, description, data = {}) {
+      if (userRole !== 'siswa') return;
+      
+      const activity = {
+        id: Date.now(),
+        studentName: currentUser,
+        type: type,
+        description: description,
+        timestamp: new Date().toISOString(),
+        data: data
+      };
+      
+      studentActivities.push(activity);
+      localStorage.setItem('studentActivities', JSON.stringify(studentActivities));
+      
+      // Update game stats
+      if (type.includes('game')) {
+        const gameName = type.replace('game_', '');
+        gameStats[gameName] = (gameStats[gameName] || 0) + 1;
+        localStorage.setItem('gameStats', JSON.stringify(gameStats));
+      }
+    }
+
+    function showToast(message, type = 'info') {
+      const toast = document.createElement('div');
+      toast.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        padding: 15px 25px;
+        border-radius: 12px;
+        color: white;
+        font-weight: 600;
+        z-index: 1000;
+        animation: slideIn 0.3s ease;
+      `;
+      
+      const colors = {
+        success: 'linear-gradient(135deg, #475569 0%, #64748b 100%)',
+        error: 'linear-gradient(135deg, #dc2626 0%, #ef4444 100%)',
+        info: 'linear-gradient(135deg, #94a3b8 0%, #64748b 100%)'
+      };
+      
+      toast.style.background = colors[type] || colors.info;
+      toast.textContent = message;
+      
+      document.body.appendChild(toast);
+      
+      setTimeout(() => {
+        toast.remove();
+      }, 3000);
+    }
+
+    function showSection(sectionName) {
+      const sections = document.querySelectorAll('.section');
+      const buttons = document.querySelectorAll('#mainNav .nav-btn');
+      
+      sections.forEach(section => section.classList.remove('active'));
+      buttons.forEach(btn => btn.classList.remove('active'));
+      
+      document.getElementById(sectionName).classList.add('active');
+      if (event && event.target) {
+        event.target.classList.add('active');
+      }
+
+      if (sectionName === 'game') {
+        showGame('memory');
+      } else if (sectionName === 'dashboard' && userRole === 'guru') {
+        updateDashboard();
+      }
+      
+      // Log section visit for students
+      if (userRole === 'siswa') {
+        logActivity('section_visit', `Mengakses bagian ${sectionName}`);
+      }
+    }
+
+    function showGame(gameType) {
+      const games = ['memoryGame', 'dragGame', 'wordGame', 'sortingGame'];
+      const buttons = ['memoryBtn', 'dragBtn', 'wordBtn', 'sortBtn'];
+      
+      games.forEach(game => document.getElementById(game).style.display = 'none');
+      buttons.forEach(btn => document.getElementById(btn).classList.remove('active'));
+      
+      document.getElementById(gameType + 'Game').style.display = 'block';
+      document.getElementById(gameType + 'Btn').classList.add('active');
+
+      if (gameType === 'memory') {
+        initMemoryGame();
+      } else if (gameType === 'drag') {
+        initDragGame();
+      } else if (gameType === 'word') {
+        initWordGame();
+      } else if (gameType === 'sorting') {
+        initSortingGame();
+      }
+      
+      // Log game access for students
+      if (userRole === 'siswa') {
+        logActivity('game_' + gameType, `Memainkan ${gameType} game`);
+      }
+    }
+
+    // Memory Game Functions
+    function initMemoryGame() {
+      const shuffled = [...gameCards].sort(() => Math.random() - 0.5);
+      const gameBoard = document.getElementById('memoryBoard');
+      gameBoard.innerHTML = '';
+      
+      shuffled.forEach(card => {
+        const cardElement = document.createElement('div');
+        cardElement.className = 'game-card';
+        cardElement.textContent = '?';
+        cardElement.dataset.id = card.id;
+        cardElement.dataset.pair = card.pair;
+        cardElement.dataset.text = card.text;
+        cardElement.onclick = () => flipCard(cardElement);
+        gameBoard.appendChild(cardElement);
+      });
+      
+      flippedCards = [];
+      matchedPairs = 0;
+    }
+
+    function flipCard(card) {
+      if (card.classList.contains('matched') || card.classList.contains('flipped') || flippedCards.length >= 2) {
+        return;
+      }
+      
+      card.classList.add('flipped');
+      card.textContent = card.dataset.text;
+      flippedCards.push(card);
+      
+      if (flippedCards.length === 2) {
+        setTimeout(checkMatch, 1000);
+      }
+    }
+
+    function checkMatch() {
+      const [card1, card2] = flippedCards;
+      
+      if (card1.dataset.pair === card2.dataset.id) {
+        card1.classList.add('matched');
+        card2.classList.add('matched');
+        matchedPairs++;
+        
+        if (matchedPairs === gameCards.length / 2) {
+          setTimeout(() => {
+            const gameBoard = document.getElementById('memoryBoard');
+            gameBoard.innerHTML = '<div style="grid-column: 1/-1; text-align: center; font-size: 2em; color: #1e3a8a; padding: 40px; background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%); border-radius: 16px;">🎉 Selamat! Anda berhasil mencocokkan semua kartu!</div>';
+          }, 500);
+        }
+      } else {
+        card1.classList.remove('flipped');
+        card2.classList.remove('flipped');
+        card1.textContent = '?';
+        card2.textContent = '?';
+      }
+      
+      flippedCards = [];
+    }
+
+    function resetMemoryGame() {
+      initMemoryGame();
+    }
+
+    // Drag & Drop Game Functions
+    function initDragGame() {
+      const dragContainer = document.getElementById('dragItems');
+      const technicalContainer = document.getElementById('technicalItems');
+      const nontechnicalContainer = document.getElementById('nontechnicalItems');
+      
+      dragContainer.innerHTML = '';
+      technicalContainer.innerHTML = '';
+      nontechnicalContainer.innerHTML = '';
+      
+      const shuffledItems = [...dragItems].sort(() => Math.random() - 0.5);
+      
+      shuffledItems.forEach(item => {
+        const itemElement = document.createElement('div');
+        itemElement.className = 'drag-item';
+        itemElement.textContent = item.text;
+        itemElement.draggable = true;
+        itemElement.dataset.category = item.category;
+        
+        itemElement.addEventListener('dragstart', (e) => {
+          e.dataTransfer.setData('text/plain', item.text);
+          e.dataTransfer.setData('category', item.category);
+          itemElement.classList.add('dragging');
+        });
+        
+        itemElement.addEventListener('dragend', () => {
+          itemElement.classList.remove('dragging');
+        });
+        
+        dragContainer.appendChild(itemElement);
+      });
+      
+      setupDropZones();
+    }
+
+    function setupDropZones() {
+      const dropZones = document.querySelectorAll('.drop-zone');
+      
+      dropZones.forEach(zone => {
+        zone.addEventListener('dragover', (e) => {
+          e.preventDefault();
+          zone.classList.add('drag-over');
+        });
+        
+        zone.addEventListener('dragleave', () => {
+          zone.classList.remove('drag-over');
+        });
+        
+        zone.addEventListener('drop', (e) => {
+          e.preventDefault();
+          zone.classList.remove('drag-over');
+          
+          const text = e.dataTransfer.getData('text/plain');
+          const category = e.dataTransfer.getData('category');
+          const draggedElement = document.querySelector(`.drag-item[draggable="true"]:not([style*="display: none"])`);
+          
+          if (draggedElement && draggedElement.textContent === text) {
+            const targetContainer = zone.querySelector('.drop-items');
+            const newElement = draggedElement.cloneNode(true);
+            newElement.draggable = false;
+            newElement.style.cursor = 'default';
+            targetContainer.appendChild(newElement);
+            draggedElement.style.display = 'none';
+          }
+        });
+      });
+    }
+
+    function checkDragGame() {
+      const technicalItems = document.getElementById('technicalItems').children;
+      const nontechnicalItems = document.getElementById('nontechnicalItems').children;
+      let correct = 0;
+      let total = dragItems.length;
+      
+      Array.from(technicalItems).forEach(item => {
+        const originalItem = dragItems.find(d => d.text === item.textContent);
+        if (originalItem && originalItem.category === 'technical') {
+          correct++;
+          item.style.background = 'linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%)';
+        } else {
+          item.style.background = 'linear-gradient(135deg, #dc2626 0%, #ef4444 100%)';
+        }
+      });
+      
+      Array.from(nontechnicalItems).forEach(item => {
+        const originalItem = dragItems.find(d => d.text === item.textContent);
+        if (originalItem && originalItem.category === 'nontechnical') {
+          correct++;
+          item.style.background = 'linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%)';
+        } else {
+          item.style.background = 'linear-gradient(135deg, #dc2626 0%, #ef4444 100%)';
+        }
+      });
+      
+      const result = document.getElementById('dragResult');
+      if (correct === total) {
+        result.innerHTML = '🎉 Sempurna! Semua item telah dikelompokkan dengan benar!';
+        result.style.color = '#1e3a8a';
+      } else {
+        result.innerHTML = `📊 Skor: ${correct}/${total} benar. Coba lagi!`;
+        result.style.color = '#dc2626';
+      }
+    }
+
+    function resetDragGame() {
+      document.getElementById('dragResult').innerHTML = '';
+      initDragGame();
+    }
+
+    // Word Puzzle Game Functions
+    function initWordGame() {
+      currentWordIndex = 0;
+      wordScore = 0;
+      showCurrentWord();
+      updateWordScore();
+    }
+
+    function showCurrentWord() {
+      if (currentWordIndex < wordPuzzles.length) {
+        const puzzle = wordPuzzles[currentWordIndex];
+        document.getElementById('scrambledWord').textContent = puzzle.scrambled;
+        document.getElementById('wordHint').textContent = `Petunjuk: ${puzzle.hint}`;
+        document.getElementById('wordAnswer').value = '';
+        document.getElementById('wordResult').innerHTML = '';
+      } else {
+        document.getElementById('wordResult').innerHTML = `🎉 Game selesai! Skor akhir: ${wordScore}/${wordPuzzles.length}`;
+        document.getElementById('wordResult').style.color = '#1e3a8a';
+      }
+    }
+
+    function checkWordAnswer() {
+      if (currentWordIndex >= wordPuzzles.length) return;
+      
+      const userAnswer = document.getElementById('wordAnswer').value.toUpperCase().trim();
+      const correctAnswer = wordPuzzles[currentWordIndex].word.toUpperCase();
+      const result = document.getElementById('wordResult');
+      
+      if (userAnswer === correctAnswer) {
+        result.innerHTML = '✅ Benar! Jawaban Anda tepat!';
+        result.style.color = '#1e3a8a';
+        wordScore++;
+        updateWordScore();
+      } else {
+        result.innerHTML = `❌ Salah! Jawaban yang benar adalah: ${correctAnswer}`;
+        result.style.color = '#dc2626';
+      }
+    }
+
+    function nextWord() {
+      currentWordIndex++;
+      showCurrentWord();
+    }
+
+    function updateWordScore() {
+      document.getElementById('wordScore').textContent = `Skor: ${wordScore}/${wordPuzzles.length}`;
+    }
+
+    // Sorting Game Functions
+    function initSortingGame() {
+      const container = document.getElementById('sortingItems');
+      container.innerHTML = '';
+      
+      const shuffledSteps = [...sortingSteps].sort(() => Math.random() - 0.5);
+      
+      shuffledSteps.forEach((step, index) => {
+        const stepElement = document.createElement('div');
+        stepElement.className = 'sorting-item';
+        stepElement.textContent = `${index + 1}. ${step.text}`;
+        stepElement.draggable = true;
+        stepElement.dataset.order = step.order;
+        stepElement.dataset.id = step.id;
+        
+        stepElement.addEventListener('dragstart', (e) => {
+          e.dataTransfer.setData('text/plain', step.id);
+          stepElement.classList.add('dragging');
+        });
+        
+        stepElement.addEventListener('dragend', () => {
+          stepElement.classList.remove('dragging');
+        });
+        
+        stepElement.addEventListener('dragover', (e) => {
+          e.preventDefault();
+        });
+        
+        stepElement.addEventListener('drop', (e) => {
+          e.preventDefault();
+          const draggedId = e.dataTransfer.getData('text/plain');
+          const draggedElement = document.querySelector(`[data-id="${draggedId}"]`);
+          
+          if (draggedElement !== stepElement) {
+            const container = stepElement.parentNode;
+            const draggedIndex = Array.from(container.children).indexOf(draggedElement);
+            const targetIndex = Array.from(container.children).indexOf(stepElement);
+            
+            if (draggedIndex < targetIndex) {
+              container.insertBefore(draggedElement, stepElement.nextSibling);
+            } else {
+              container.insertBefore(draggedElement, stepElement);
+            }
+            
+            updateSortingNumbers();
+          }
+        });
+        
+        container.appendChild(stepElement);
+      });
+    }
+
+    function updateSortingNumbers() {
+      const items = document.querySelectorAll('.sorting-item');
+      items.forEach((item, index) => {
+        const text = item.textContent.substring(item.textContent.indexOf('.') + 2);
+        item.textContent = `${index + 1}. ${text}`;
+      });
+    }
+
+    function checkSortingOrder() {
+      const items = document.querySelectorAll('.sorting-item');
+      let correct = 0;
+      
+      items.forEach((item, index) => {
+        const correctOrder = parseInt(item.dataset.order);
+        const currentPosition = index + 1;
+        
+        if (correctOrder === currentPosition) {
+          correct++;
+          item.style.background = 'linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%)';
+          item.style.color = 'white';
+        } else {
+          item.style.background = 'linear-gradient(135deg, #dc2626 0%, #ef4444 100%)';
+          item.style.color = 'white';
+        }
+      });
+      
+      const result = document.getElementById('sortingResult');
+      if (correct === sortingSteps.length) {
+        result.innerHTML = '🎉 Sempurna! Urutan langkah implementasi sudah benar!';
+        result.style.color = '#1e3a8a';
+      } else {
+        result.innerHTML = `📊 ${correct}/${sortingSteps.length} langkah dalam urutan yang benar. Coba lagi!`;
+        result.style.color = '#dc2626';
+      }
+    }
+
+    function resetSortingGame() {
+      document.getElementById('sortingResult').innerHTML = '';
+      initSortingGame();
+    }
+
+    // Quiz Functions
+    function checkAnswer(option, isCorrect, feedback) {
+      const options = option.parentElement.querySelectorAll('.quiz-option');
+      const feedbackDiv = option.parentElement.parentElement.querySelector('.quiz-feedback');
+      
+      options.forEach(opt => {
+        opt.style.pointerEvents = 'none';
+        if (opt === option) {
+          opt.classList.add(isCorrect ? 'correct' : 'wrong');
+        }
+      });
+      
+      feedbackDiv.style.display = 'block';
+      feedbackDiv.textContent = feedback;
+      feedbackDiv.style.background = isCorrect ? 'linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%)' : 'linear-gradient(135deg, #dc2626 0%, #ef4444 100%)';
+      feedbackDiv.style.color = 'white';
+      
+      if (isCorrect) {
+        quizScore++;
+        document.getElementById('quizScore').textContent = `Skor: ${quizScore}/5`;
+      }
+      
+      // Log quiz answer for students
+      if (userRole === 'siswa') {
+        logActivity('quiz_answer', `Menjawab soal quiz`, { 
+          correct: isCorrect, 
+          currentScore: quizScore,
+          totalQuestions: 5
+        });
+        
+        // Check if quiz is completed
+        const allAnswered = document.querySelectorAll('.quiz-option.correct, .quiz-option.wrong').length;
+        if (allAnswered === 5) {
+          logActivity('quiz_completed', `Menyelesaikan quiz dengan skor ${quizScore}/5`, { 
+            finalScore: quizScore,
+            percentage: Math.round((quizScore / 5) * 100)
+          });
+        }
+      }
+    }
+
+    function resetQuiz() {
+      // Reset skor
+      quizScore = 0;
+      document.getElementById('quizScore').textContent = 'Skor: 0/5';
+      
+      // Reset semua opsi jawaban
+      const allOptions = document.querySelectorAll('.quiz-option');
+      allOptions.forEach(option => {
+        option.classList.remove('correct', 'wrong');
+        option.style.pointerEvents = 'auto';
+      });
+      
+      // Sembunyikan semua feedback
+      const allFeedbacks = document.querySelectorAll('.quiz-feedback');
+      allFeedbacks.forEach(feedback => {
+        feedback.style.display = 'none';
+      });
+    }
+
+    function submitRefleksi(event) {
+      event.preventDefault();
+      
+      // Log reflection submission for students
+      if (userRole === 'siswa') {
+        const reflectionData = {
+          pemahaman: document.getElementById('pemahaman').value,
+          penerapan: document.getElementById('penerapan').value,
+          tantangan: document.getElementById('tantangan').value,
+          komitmen: document.getElementById('komitmen').value,
+          evaluasi: document.getElementById('evaluasi').value
+        };
+        
+        logActivity('reflection_submitted', 'Mengirim refleksi pembelajaran', {
+          wordCount: Object.values(reflectionData).join(' ').split(' ').length,
+          completedFields: Object.values(reflectionData).filter(val => val.trim().length > 0).length
+        });
+      }
+      
+      const successMessage = document.getElementById('successMessage');
+      successMessage.style.display = 'block';
+      
+      setTimeout(() => {
+        event.target.reset();
+        successMessage.style.display = 'none';
+      }, 5000);
+    }
+
+    async function onConfigChange(newConfig) {
+      config = { ...config, ...newConfig };
+      
+      document.getElementById('main-title').textContent = config.main_title || defaultConfig.main_title;
+      document.getElementById('subtitle').textContent = config.subtitle || defaultConfig.subtitle;
+      document.getElementById('author-name').textContent = config.author_name || defaultConfig.author_name;
+    }
+
+    function mapToCapabilities(config) {
+      return {
+        recolorables: [],
+        borderables: [],
+        fontEditable: undefined,
+        fontSizeable: undefined
+      };
+    }
+
+    function mapToEditPanelValues(config) {
+      return new Map([
+        ["main_title", config.main_title || defaultConfig.main_title],
+        ["subtitle", config.subtitle || defaultConfig.subtitle],
+        ["author_name", config.author_name || defaultConfig.author_name]
+      ]);
+    }
+
+    if (window.elementSdk) {
+      window.elementSdk.init({
+        defaultConfig,
+        onConfigChange,
+        mapToCapabilities,
+        mapToEditPanelValues
+      });
+    }
+
+    // Dashboard update function for teachers
+    function updateDashboard() {
+      if (userRole !== 'guru') return;
+      
+      const activities = JSON.parse(localStorage.getItem('studentActivities') || '[]');
+      
+      // Get unique students
+      const students = {};
+      activities.forEach(activity => {
+        if (!students[activity.studentName]) {
+          students[activity.studentName] = {
+            name: activity.studentName,
+            loginTime: activity.timestamp,
+            quizScore: 0,
+            quizCompleted: false,
+            gamesPlayed: 0,
+            reflectionSubmitted: false,
+            lastActivity: activity.timestamp
+          };
+        }
+        
+        // Update student data based on activity
+        if (activity.type === 'quiz_completed') {
+          students[activity.studentName].quizScore = activity.data.finalScore;
+          students[activity.studentName].quizCompleted = true;
+        } else if (activity.type.includes('game_')) {
+          students[activity.studentName].gamesPlayed++;
+        } else if (activity.type === 'reflection_submitted') {
+          students[activity.studentName].reflectionSubmitted = true;
+        }
+        
+        students[activity.studentName].lastActivity = activity.timestamp;
+      });
+      
+      // Update statistics
+      const studentCount = Object.keys(students).length;
+      const totalGames = activities.filter(a => a.type.includes('game_')).length;
+      const completedQuizzes = activities.filter(a => a.type === 'quiz_completed').length;
+      const submittedReflections = activities.filter(a => a.type === 'reflection_submitted').length;
+      
+      document.getElementById('totalStudents').textContent = studentCount;
+      document.getElementById('gamesPlayed').textContent = totalGames;
+      document.getElementById('quizCompleted').textContent = completedQuizzes;
+      document.getElementById('reflectionSubmitted').textContent = submittedReflections;
+      
+      // Calculate average quiz score
+      const quizScores = Object.values(students).filter(s => s.quizCompleted).map(s => s.quizScore);
+      const avgScore = quizScores.length > 0 ? (quizScores.reduce((a, b) => a + b, 0) / quizScores.length).toFixed(1) : 0;
+      document.getElementById('avgQuizScore').textContent = avgScore;
+      
+      // Most popular game
+      const gameStats = JSON.parse(localStorage.getItem('gameStats') || '{}');
+      const popularGame = Object.keys(gameStats).reduce((a, b) => gameStats[a] > gameStats[b] ? a : b, '-');
+      document.getElementById('popularGame').textContent = popularGame === '-' ? '-' : popularGame.charAt(0).toUpperCase() + popularGame.slice(1);
+      
+      // Update student list
+      updateStudentList(students);
+      
+      // Update recent activities
+      updateRecentActivities(activities);
+    }
+    
+    function updateStudentList(students) {
+      const container = document.getElementById('studentList');
+      
+      if (Object.keys(students).length === 0) {
+        container.innerHTML = '<p style="color: #64748b; font-style: italic; text-align: center; padding: 20px;">Belum ada siswa yang login.</p>';
+        return;
+      }
+      
+      let html = '<div style="display: grid; gap: 15px;">';
+      
+      Object.values(students).forEach(student => {
+        const loginTime = new Date(student.loginTime).toLocaleString('id-ID');
+        const lastActivity = new Date(student.lastActivity).toLocaleString('id-ID');
+        
+        html += `
+          <div style="background: rgba(255, 255, 255, 0.8); padding: 20px; border-radius: 12px; border-left: 4px solid #475569;">
+            <div style="display: flex; justify-content: between; align-items: center; margin-bottom: 10px;">
+              <h4 style="margin: 0; color: #475569; font-size: 1.2em;">👨‍🎓 ${student.name}</h4>
+              <span style="background: ${student.quizCompleted ? '#475569' : '#94a3b8'}; color: white; padding: 4px 12px; border-radius: 20px; font-size: 0.8em;">
+                ${student.quizCompleted ? 'Quiz Selesai' : 'Belum Quiz'}
+              </span>
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; font-size: 0.9em; color: #64748b;">
+              <div><strong>Nilai Quiz:</strong> ${student.quizScore}/5 (${Math.round((student.quizScore/5)*100)}%)</div>
+              <div><strong>Game Dimainkan:</strong> ${student.gamesPlayed} kali</div>
+              <div><strong>Refleksi:</strong> ${student.reflectionSubmitted ? '✅ Sudah' : '❌ Belum'}</div>
+              <div><strong>Login:</strong> ${loginTime}</div>
+            </div>
+            <div style="margin-top: 10px; font-size: 0.8em; color: #94a3b8;">
+              <strong>Aktivitas Terakhir:</strong> ${lastActivity}
+            </div>
+          </div>
+        `;
+      });
+      
+      html += '</div>';
+      container.innerHTML = html;
+    }
+    
+    function updateRecentActivities(activities) {
+      const container = document.getElementById('recentActivities');
+      
+      if (activities.length === 0) {
+        container.innerHTML = '<p style="color: #64748b; font-style: italic; text-align: center; padding: 20px;">Belum ada aktivitas siswa yang tercatat.</p>';
+        return;
+      }
+      
+      // Get last 10 activities
+      const recentActivities = activities.slice(-10).reverse();
+      
+      let html = '<div style="display: grid; gap: 10px;">';
+      
+      recentActivities.forEach(activity => {
+        const time = new Date(activity.timestamp).toLocaleString('id-ID');
+        const icon = getActivityIcon(activity.type);
+        
+        html += `
+          <div style="background: rgba(255, 255, 255, 0.6); padding: 15px; border-radius: 8px; display: flex; align-items: center; gap: 15px;">
+            <span style="font-size: 1.2em;">${icon}</span>
+            <div style="flex: 1;">
+              <div style="font-weight: 600; color: #475569;">${activity.studentName}</div>
+              <div style="font-size: 0.9em; color: #64748b;">${activity.description}</div>
+              ${activity.data && activity.data.finalScore !== undefined ? 
+                `<div style="font-size: 0.8em; color: #94a3b8;">Skor: ${activity.data.finalScore}/5</div>` : ''}
+            </div>
+            <div style="font-size: 0.8em; color: #94a3b8; text-align: right;">
+              ${time}
+            </div>
+          </div>
+        `;
+      });
+      
+      html += '</div>';
+      container.innerHTML = html;
+    }
+    
+    function getActivityIcon(type) {
+      const icons = {
+        'login': '🚪',
+        'section_visit': '📖',
+        'game_memory': '🧠',
+        'game_drag': '🎯',
+        'game_word': '📝',
+        'game_sorting': '🔄',
+        'quiz_answer': '❓',
+        'quiz_completed': '✅',
+        'reflection_submitted': '💭',
+        'logout': '👋'
+      };
+      return icons[type] || '📌';
+    }
+
+    // Initialize on load
+    showGame('memory');
+  </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'99a1e154226d6d21',t:'MTc2MjQwMzY4NC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
